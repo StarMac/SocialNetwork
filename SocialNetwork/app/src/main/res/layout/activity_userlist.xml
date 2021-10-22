@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.UserListActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            style="@style/FirstLayout">
+
+            <ImageView
+                android:id="@+id/profile_image1"
+                android:src="@drawable/ic_generic_avatar"
+                style="@style/Avatar"
+                android:contentDescription="@string/user_profile_image" />
+
+            <LinearLayout style="@style/SecondLayout">
+
+                <TextView
+                    android:id="@+id/userName1"
+                    style="@style/nameStyle"
+                    android:text="@string/user_name_default"/>
+
+                <TextView
+                    android:id="@+id/onlineStatus1"
+                    android:text="@string/user_online_status_default"
+                    style="@style/lastSeenStyle" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            style="@style/FirstLayout">
+
+            <ImageView
+                android:id="@+id/profile_image2"
+                style="@style/Avatar"
+                android:src="@drawable/ic_generic_avatar"
+                android:contentDescription="@string/user_profile_image" />
+
+            <LinearLayout style="@style/SecondLayout">
+
+                <TextView
+                    android:id="@+id/userName2"
+                    android:text="@string/user_name_default"
+                    style="@style/nameStyle" />
+
+                <TextView
+                    android:id="@+id/onlineStatus2"
+                    android:text="@string/user_online_status_default"
+                    style="@style/lastSeenStyle" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout3"
+            style="@style/FirstLayout">
+
+            <ImageView
+                android:id="@+id/profile_image3"
+                style="@style/Avatar"
+                android:src="@drawable/ic_generic_avatar"
+                android:contentDescription="@string/user_profile_image"/>
+
+            <LinearLayout style="@style/SecondLayout">
+
+                <TextView
+                    android:id="@+id/userName3"
+                    android:text="@string/user_name_default"
+                    style="@style/nameStyle" />
+
+                <TextView
+                    android:id="@+id/onlineStatus3"
+                    android:text="@string/user_online_status_default"
+                    style="@style/lastSeenStyle" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout4"
+            style="@style/FirstLayout">
+
+            <ImageView
+                android:id="@+id/profile_image4"
+                style="@style/Avatar"
+                android:src="@drawable/ic_generic_avatar"
+                android:contentDescription="@string/user_profile_image" />
+
+            <LinearLayout style="@style/SecondLayout">
+
+                <TextView
+                    android:id="@+id/userName4"
+                    android:text="@string/user_name_default"
+                    style="@style/nameStyle" />
+
+                <TextView
+                    android:id="@+id/onlineStatus4"
+                    android:text="@string/user_online_status_default"
+                    style="@style/lastSeenStyle" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout5"
+            style="@style/FirstLayout">
+
+            <ImageView
+                android:id="@+id/profile_image5"
+                style="@style/Avatar"
+                android:src="@drawable/ic_generic_avatar"
+                android:contentDescription="@string/user_profile_image" />
+
+            <LinearLayout style="@style/SecondLayout">
+
+                <TextView
+                    android:id="@+id/userName5"
+                    android:text="@string/user_name_default"
+                    style="@style/nameStyle" />
+
+                <TextView
+                    android:id="@+id/onlineStatus5"
+                    android:text="@string/user_online_status_default"
+                    style="@style/lastSeenStyle" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout6"
+            style="@style/FirstLayout">
+
+            <ImageView
+                android:id="@+id/profile_image6"
+                style="@style/Avatar"
+                android:src="@drawable/ic_generic_avatar"
+                android:contentDescription="@string/user_profile_image" />
+
+            <LinearLayout style="@style/SecondLayout">
+
+                <TextView
+                    android:id="@+id/userName6"
+                    android:text="@string/user_name_default"
+                    style="@style/nameStyle" />
+
+                <TextView
+                    android:id="@+id/onlineStatus6"
+                    android:text="@string/user_online_status_default"
+                    style="@style/lastSeenStyle" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout7"
+            style="@style/FirstLayout">
+
+            <ImageView
+                android:id="@+id/profile_image7"
+                style="@style/Avatar"
+                android:src="@drawable/ic_generic_avatar"
+                android:contentDescription="@string/user_profile_image" />
+
+            <LinearLayout style="@style/SecondLayout">
+
+                <TextView
+                    android:id="@+id/userName7"
+                    android:text="@string/user_name_default"
+                    style="@style/nameStyle" />
+
+                <TextView
+                    android:id="@+id/onlineStatus7"
+                    android:text="@string/user_online_status_default"
+                    style="@style/lastSeenStyle" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SocialNetwork</string>
+    <string name="default_value">0</string>
+    <string name="details_name">Name</string>
+    <string name="details_hobby">Hobby</string>
+    <string name="details_status">Status</string>
+    <string name="details_follow">Follow</string>
+    <string name="details_followers">Followers</string>
+    <string name="details_posts">Posts</string>
+    <string name="details_following">Following</string>
+    <string name="details_reach">Reach</string>
+    <string name="details_social_score">Social score</string>
+    <string name="details_sharemeter">Sharemeter</string>
+    <string name="user_profile_image">profile_image</string>
+    <string name="user_online_status_default">1 day ago</string>
+    <string name="user_name_default">Name</string>
+</resources>
