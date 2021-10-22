@@ -24,13 +24,13 @@
 
                 <TextView
                     android:id="@+id/userName1"
-                    style="@style/nameStyle"
+                    style="@style/Name"
                     android:text="@string/user_name_default"/>
 
                 <TextView
                     android:id="@+id/onlineStatus1"
                     android:text="@string/user_online_status_default"
-                    style="@style/lastSeenStyle" />
+                    style="@style/OnlineStatus" />
 
             </LinearLayout>
 
@@ -52,12 +52,12 @@
                 <TextView
                     android:id="@+id/userName2"
                     android:text="@string/user_name_default"
-                    style="@style/nameStyle" />
+                    style="@style/Name" />
 
                 <TextView
                     android:id="@+id/onlineStatus2"
                     android:text="@string/user_online_status_default"
-                    style="@style/lastSeenStyle" />
+                    style="@style/OnlineStatus" />
 
             </LinearLayout>
 
@@ -79,12 +79,12 @@
                 <TextView
                     android:id="@+id/userName3"
                     android:text="@string/user_name_default"
-                    style="@style/nameStyle" />
+                    style="@style/Name" />
 
                 <TextView
                     android:id="@+id/onlineStatus3"
                     android:text="@string/user_online_status_default"
-                    style="@style/lastSeenStyle" />
+                    style="@style/OnlineStatus" />
 
 
             </LinearLayout>
@@ -107,12 +107,12 @@
                 <TextView
                     android:id="@+id/userName4"
                     android:text="@string/user_name_default"
-                    style="@style/nameStyle" />
+                    style="@style/Name" />
 
                 <TextView
                     android:id="@+id/onlineStatus4"
                     android:text="@string/user_online_status_default"
-                    style="@style/lastSeenStyle" />
+                    style="@style/OnlineStatus" />
 
             </LinearLayout>
 
@@ -134,12 +134,12 @@
                 <TextView
                     android:id="@+id/userName5"
                     android:text="@string/user_name_default"
-                    style="@style/nameStyle" />
+                    style="@style/Name" />
 
                 <TextView
                     android:id="@+id/onlineStatus5"
                     android:text="@string/user_online_status_default"
-                    style="@style/lastSeenStyle" />
+                    style="@style/OnlineStatus" />
 
             </LinearLayout>
 
@@ -161,12 +161,12 @@
                 <TextView
                     android:id="@+id/userName6"
                     android:text="@string/user_name_default"
-                    style="@style/nameStyle" />
+                    style="@style/Name" />
 
                 <TextView
                     android:id="@+id/onlineStatus6"
                     android:text="@string/user_online_status_default"
-                    style="@style/lastSeenStyle" />
+                    style="@style/OnlineStatus" />
 
             </LinearLayout>
 
@@ -188,12 +188,12 @@
                 <TextView
                     android:id="@+id/userName7"
                     android:text="@string/user_name_default"
-                    style="@style/nameStyle" />
+                    style="@style/Name" />
 
                 <TextView
                     android:id="@+id/onlineStatus7"
                     android:text="@string/user_online_status_default"
-                    style="@style/lastSeenStyle" />
+                    style="@style/OnlineStatus" />
 
             </LinearLayout>
 
