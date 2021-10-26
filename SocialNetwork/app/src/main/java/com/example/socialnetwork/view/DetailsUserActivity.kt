@@ -25,18 +25,18 @@ class DetailsUserActivity : AppCompatActivity(), Serializable {
         val detailsHobby: TextView = findViewById(R.id.detailsUserHobby)
         val detailsImage: ImageView = findViewById(R.id.detailsImage)
         val arguments = intent.extras
-        val id = arguments?.getInt("id")
+        val id : Int = arguments?.getInt("id")!!.toInt()
 
 
 
-        viewModel.loadUserData()
+        viewModel.loadUserDetailsData(id)
 
-        viewModel.userLiveData.observe(this, Observer {
+        viewModel.userDetailsLiveData.observe(this, Observer {
 
-            detailsUserName.text = it.userList[id!!].name
-            detailsHobby.text = it.userList[id].profession
-            detailsTextStatus.text = it.userList[id].status
-            Glide.with(this).load(it.userList[id].photo).error(R.drawable.ic_generic_avatar).into(detailsImage)
+            detailsUserName.text = it.name
+            detailsHobby.text = it.profession
+            detailsTextStatus.text = it.status
+            Glide.with(this).load(it.photo).error(R.drawable.ic_generic_avatar).into(detailsImage)
         })
     }
 }
