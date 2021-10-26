@@ -8,17 +8,17 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.socialnetwork.R
-import com.example.socialnetwork.viewmodel.UserViewModel
+import com.example.socialnetwork.viewmodel.DetailsUserViewModel
 import java.io.Serializable
 
 class DetailsUserActivity : AppCompatActivity(), Serializable {
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: DetailsUserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_user)
 
-        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(DetailsUserViewModel::class.java)
 
         val detailsUserName: TextView = findViewById(R.id.detailsUserName)
         val detailsTextStatus: TextView = findViewById(R.id.detailsUserStatus)
