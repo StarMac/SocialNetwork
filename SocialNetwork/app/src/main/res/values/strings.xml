@@ -14,4 +14,6 @@
     <string name="user_profile_image">profile_image</string>
     <string name="user_online_status_default">1 day ago</string>
     <string name="user_name_default">Name</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="photo_uri">Photo URI</string>
 </resources>

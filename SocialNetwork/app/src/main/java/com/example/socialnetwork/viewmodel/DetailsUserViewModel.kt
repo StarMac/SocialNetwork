@@ -1,16 +1,24 @@
 package com.example.socialnetwork.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.socialnetwork.model.User
 import com.example.socialnetwork.model.UserData
+import com.example.socialnetwork.model.UserDataBase
 
-class DetailsUserViewModel : ViewModel() {
-    private val userData: UserData = UserData()
+class DetailsUserViewModel (application: Application) : AndroidViewModel(application) {
     private val _userDetailsLiveData = MutableLiveData<User>()
-    val userDetailsLiveData = _userDetailsLiveData
+    val userDetailsLiveData : LiveData<User> = _userDetailsLiveData
+
+    private val userDataBase = UserDataBase.getInstance(application).userDatabaseDao()
 
     fun loadUserDetailsData(id: Int){
-        _userDetailsLiveData.value = userData.userList[id]
+        _userDetailsLiveData.value = userDataBase.get(id)
+    }
+
+    fun updateUser(user : User){
+        userDataBase.update(user)
     }
 }

@@ -48,6 +48,8 @@ class UserListActivity : AppCompatActivity() {
             findViewById(R.id.profile_image7)
         )
 
+        viewModel.insertUserToDataBase()
+
         viewModel.loadUserData()
 
         viewModel.userLiveData.observe(this, Observer {

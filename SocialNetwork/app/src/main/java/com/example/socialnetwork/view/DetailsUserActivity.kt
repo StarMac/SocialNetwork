@@ -1,7 +1,10 @@
 package com.example.socialnetwork.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.Observer
@@ -17,6 +20,7 @@ class DetailsUserActivity : AppCompatActivity(), Serializable {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_user)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel = ViewModelProvider(this).get(DetailsUserViewModel::class.java)
 
@@ -24,12 +28,9 @@ class DetailsUserActivity : AppCompatActivity(), Serializable {
         val detailsTextStatus: TextView = findViewById(R.id.detailsUserStatus)
         val detailsHobby: TextView = findViewById(R.id.detailsUserHobby)
         val detailsImage: ImageView = findViewById(R.id.detailsImage)
-        val arguments = intent.extras
-        val id : Int = arguments?.getInt("id")!!.toInt()
 
 
-
-        viewModel.loadUserDetailsData(id)
+        viewModel.loadUserDetailsData(getId())
 
         viewModel.userDetailsLiveData.observe(this, Observer {
 
@@ -38,5 +39,33 @@ class DetailsUserActivity : AppCompatActivity(), Serializable {
             detailsTextStatus.text = it.status
             Glide.with(this).load(it.photo).error(R.drawable.ic_generic_avatar).into(detailsImage)
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.details_user, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId){
+            R.id.edit_button -> {
+                val intent = Intent(this, EditUserActivity::class.java)
+                intent.putExtra("id", getId())
+                startActivity(intent)
+            }
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+    private fun getId() : Int {
+        val arguments = intent.extras
+        val id : Int = arguments?.getInt("id")!!.toInt()
+        return id
     }
 }
