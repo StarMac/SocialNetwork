@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.example.socialnetwork.model.User
 import com.example.socialnetwork.model.UserData
 import com.example.socialnetwork.model.UserDataBase

@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.socialnetwork.model.User
-import com.example.socialnetwork.model.UserData
 import com.example.socialnetwork.model.UserDataBase
 
 class DetailsUserViewModel (application: Application) : AndroidViewModel(application) {
