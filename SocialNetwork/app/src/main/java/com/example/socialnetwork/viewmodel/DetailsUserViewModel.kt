@@ -17,8 +17,4 @@ class DetailsUserViewModel (application: Application) : AndroidViewModel(applica
     fun loadUserDetailsData(id: Int){
         _userDetailsLiveData.value = userDataBase.get(id)
     }
-
-    fun updateUser(user : User){
-        userDataBase.update(user)
-    }
 }
