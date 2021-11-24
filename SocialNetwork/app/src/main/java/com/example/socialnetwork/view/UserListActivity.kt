@@ -42,10 +42,10 @@ class UserListActivity : AppCompatActivity() {
         )
 
         val usersPhotoList = listOf<ImageView>(
-            findViewById(R.id.profile_image1), findViewById(R.id.profile_image2),
-            findViewById(R.id.profile_image3), findViewById(R.id.profile_image4),
-            findViewById(R.id.profile_image5), findViewById(R.id.profile_image6),
-            findViewById(R.id.profile_image7)
+            findViewById(R.id.profileImage1), findViewById(R.id.profileImage2),
+            findViewById(R.id.profileImage3), findViewById(R.id.profileImage4),
+            findViewById(R.id.profileImage5), findViewById(R.id.profileImage6),
+            findViewById(R.id.profileImage7)
         )
 
         viewModel.insertUserToDataBase()

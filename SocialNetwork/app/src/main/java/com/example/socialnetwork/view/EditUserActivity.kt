@@ -9,25 +9,25 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.socialnetwork.R
 import com.example.socialnetwork.model.User
-import com.example.socialnetwork.viewmodel.DetailsUserViewModel
+import com.example.socialnetwork.viewmodel.EditUserViewModel
 
 class EditUserActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: DetailsUserViewModel
+    private lateinit var viewModel: EditUserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_user)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        viewModel = ViewModelProvider(this).get(DetailsUserViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(EditUserViewModel::class.java)
 
         val editUserName: EditText = findViewById(R.id.editName)
         val editPhoto: EditText = findViewById(R.id.editPhoto)
         val editStatus: EditText = findViewById(R.id.editStatus)
         val editHobby: EditText = findViewById(R.id.editHobby)
 
-        viewModel.userDetailsLiveData.observe(this, {
+        viewModel.userEditLiveData.observe(this, {
             editUserName.setText(it.name)
             editPhoto.setText(it.photo)
             editHobby.setText(it.profession)
@@ -46,7 +46,7 @@ class EditUserActivity : AppCompatActivity() {
 
         when (item.itemId){
 
-            R.id.confirm_button -> {
+            R.id.confirmButton -> {
 
                 val usersEditTextList = listOf<EditText>(
                     findViewById(R.id.editName), findViewById(R.id.editPhoto),
@@ -63,7 +63,7 @@ class EditUserActivity : AppCompatActivity() {
                     getId(),
                     usersEditTextList[0].text.toString(),
                     usersEditTextList[1].text.toString(),
-                    viewModel.userDetailsLiveData.value!!.onlineStatus,
+                    viewModel.userEditLiveData.value!!.onlineStatus,
                     usersEditTextList[2].text.toString(),
                     usersEditTextList[3].text.toString()
                 )

@@ -15,7 +15,7 @@
             style="@style/FirstLayout">
 
             <ImageView
-                android:id="@+id/profile_image1"
+                android:id="@+id/profileImage1"
                 android:src="@drawable/ic_generic_avatar"
                 style="@style/Avatar"
                 android:contentDescription="@string/user_profile_image" />
@@ -42,7 +42,7 @@
             style="@style/FirstLayout">
 
             <ImageView
-                android:id="@+id/profile_image2"
+                android:id="@+id/profileImage2"
                 style="@style/Avatar"
                 android:src="@drawable/ic_generic_avatar"
                 android:contentDescription="@string/user_profile_image" />
@@ -69,7 +69,7 @@
             style="@style/FirstLayout">
 
             <ImageView
-                android:id="@+id/profile_image3"
+                android:id="@+id/profileImage3"
                 style="@style/Avatar"
                 android:src="@drawable/ic_generic_avatar"
                 android:contentDescription="@string/user_profile_image"/>
@@ -97,7 +97,7 @@
             style="@style/FirstLayout">
 
             <ImageView
-                android:id="@+id/profile_image4"
+                android:id="@+id/profileImage4"
                 style="@style/Avatar"
                 android:src="@drawable/ic_generic_avatar"
                 android:contentDescription="@string/user_profile_image" />
@@ -124,7 +124,7 @@
             style="@style/FirstLayout">
 
             <ImageView
-                android:id="@+id/profile_image5"
+                android:id="@+id/profileImage5"
                 style="@style/Avatar"
                 android:src="@drawable/ic_generic_avatar"
                 android:contentDescription="@string/user_profile_image" />
@@ -151,7 +151,7 @@
             style="@style/FirstLayout">
 
             <ImageView
-                android:id="@+id/profile_image6"
+                android:id="@+id/profileImage6"
                 style="@style/Avatar"
                 android:src="@drawable/ic_generic_avatar"
                 android:contentDescription="@string/user_profile_image" />
@@ -178,7 +178,7 @@
             style="@style/FirstLayout">
 
             <ImageView
-                android:id="@+id/profile_image7"
+                android:id="@+id/profileImage7"
                 style="@style/Avatar"
                 android:src="@drawable/ic_generic_avatar"
                 android:contentDescription="@string/user_profile_image" />

@@ -50,7 +50,7 @@ class DetailsUserActivity : AppCompatActivity(), Serializable {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when (item.itemId){
-            R.id.edit_button -> {
+            R.id.editButton -> {
                 val intent = Intent(this, EditUserActivity::class.java)
                 intent.putExtra("id", getId())
                 startActivity(intent)
