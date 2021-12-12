@@ -16,13 +16,9 @@ class AddUserViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
-    fun onInsertUser(user: User) {
+    fun insertUser(user: User) {
         viewModelScope.launch {
-            insertUser(user)
+            userDataBase.insert(user)
         }
-    }
-
-    private suspend fun insertUser(user: User) {
-        userDataBase.insert(user)
     }
 }

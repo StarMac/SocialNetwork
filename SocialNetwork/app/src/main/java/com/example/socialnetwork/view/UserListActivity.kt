@@ -1,19 +1,15 @@
 package com.example.socialnetwork.view
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.socialnetwork.R
 import com.example.socialnetwork.adapter.OnItemClick
 import com.example.socialnetwork.adapter.UserAdapter
-import com.example.socialnetwork.model.User
-import com.example.socialnetwork.model.UserDataBase
 import com.example.socialnetwork.viewmodel.UserViewModel
 
 class UserListActivity : AppCompatActivity(), OnItemClick {

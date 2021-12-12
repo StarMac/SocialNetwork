@@ -58,7 +58,7 @@ class AddUserActivity : AppCompatActivity() {
                     userAddList[2].text.toString(),
                     userAddList[3].text.toString()
                 )
-                viewModel.onInsertUser(user)
+                viewModel.insertUser(user)
                 finish()
             }
             android.R.id.home -> {

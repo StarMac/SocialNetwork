@@ -31,7 +31,10 @@ class DetailsUserActivity : AppCompatActivity(), Serializable {
 
 
         viewModel.userDetailsLiveData.observe(this, {
-
+            if (it == null) {
+                finish()
+                return@observe
+            }
             detailsUserName.text = it.name
             detailsHobby.text = it.profession
             detailsTextStatus.text = it.status
@@ -55,7 +58,7 @@ class DetailsUserActivity : AppCompatActivity(), Serializable {
             }
             R.id.deleteButton -> {
                 finish()
-                viewModel.onDeleteUser(getId())
+                viewModel.deleteUser(getId())
             }
             android.R.id.home -> {
                 finish()

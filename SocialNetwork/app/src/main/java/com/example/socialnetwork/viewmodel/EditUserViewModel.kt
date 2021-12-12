@@ -27,11 +27,7 @@ class EditUserViewModel(application: Application) : AndroidViewModel(application
 
     fun onUpdateUser(user: User) {
         viewModelScope.launch {
-            updateUser(user)
+            userDataBase.update(user)
         }
-    }
-
-    private suspend fun updateUser(user: User) {
-        userDataBase.update(user)
     }
 }

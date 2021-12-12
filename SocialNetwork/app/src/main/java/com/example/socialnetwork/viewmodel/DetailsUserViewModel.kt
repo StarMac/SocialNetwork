@@ -24,13 +24,13 @@ class DetailsUserViewModel(application: Application) : AndroidViewModel(applicat
     //    private suspend fun loadUserDetailsData(id: Int) {
 //        _userDetailsLiveData.value = userDao.get(id)
 //    }
-    fun onDeleteUser(id: Int) {
+    fun deleteUser(id: Int) {
         viewModelScope.launch {
-            deleteUser(userDataBase.get(id)!!)
+            deleteUserBase(userDataBase.get(id)!!)
         }
     }
 
-    private suspend fun deleteUser(user: User) {
+    private suspend fun deleteUserBase(user: User) {
         userDataBase.delete(user)
     }
 }
