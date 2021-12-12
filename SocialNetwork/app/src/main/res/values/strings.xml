@@ -16,4 +16,6 @@
     <string name="user_name_default">Name</string>
     <string name="edit_profile">Edit profile</string>
     <string name="photo_uri">Photo URI</string>
+    <string name="add_profile">Add profile</string>
+    <string name="delete_account">Delete account</string>
 </resources>

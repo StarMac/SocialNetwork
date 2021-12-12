@@ -1,70 +1,62 @@
 package com.example.socialnetwork.view
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.example.socialnetwork.R
+import com.example.socialnetwork.adapter.OnItemClick
+import com.example.socialnetwork.adapter.UserAdapter
+import com.example.socialnetwork.model.User
+import com.example.socialnetwork.model.UserDataBase
 import com.example.socialnetwork.viewmodel.UserViewModel
 
-class UserListActivity : AppCompatActivity() {
+class UserListActivity : AppCompatActivity(), OnItemClick {
     private lateinit var viewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_userlist)
-        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
-        val usersLayoutList = listOf<LinearLayout>(
-            findViewById(R.id.layout1), findViewById(R.id.layout2),
-            findViewById(R.id.layout3), findViewById(R.id.layout4),
-            findViewById(R.id.layout5), findViewById(R.id.layout6),
-            findViewById(R.id.layout7)
-        )
+        val recyclerView: RecyclerView = findViewById(R.id.userList)
+        val adapter = UserAdapter(this)
+        recyclerView.adapter = adapter
 
-        val usersTextList = listOf<TextView>(
-            findViewById(R.id.userName1), findViewById(R.id.userName2),
-            findViewById(R.id.userName3), findViewById(R.id.userName4),
-            findViewById(R.id.userName5), findViewById(R.id.userName6),
-            findViewById(R.id.userName7)
-        )
+        viewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
-        val usersOnlineList = listOf<TextView>(
-            findViewById(R.id.onlineStatus1), findViewById(R.id.onlineStatus2),
-            findViewById(R.id.onlineStatus3), findViewById(R.id.onlineStatus4),
-            findViewById(R.id.onlineStatus5), findViewById(R.id.onlineStatus6),
-            findViewById(R.id.onlineStatus7)
-        )
-
-        val usersPhotoList = listOf<ImageView>(
-            findViewById(R.id.profileImage1), findViewById(R.id.profileImage2),
-            findViewById(R.id.profileImage3), findViewById(R.id.profileImage4),
-            findViewById(R.id.profileImage5), findViewById(R.id.profileImage6),
-            findViewById(R.id.profileImage7)
-        )
-
-        viewModel.insertUserToDataBase()
-
-        viewModel.loadUserData()
-
-        viewModel.userLiveData.observe(this, Observer {
-            for (id in usersLayoutList.indices){
-                usersLayoutList[id].setOnClickListener{onClick(id)}
-                usersTextList[id].text = it[id].name
-                usersOnlineList[id].text = it[id].onlineStatus
-                Glide.with(this).load(it[id].photo).error(R.drawable.ic_generic_avatar).into(usersPhotoList[id])
+        viewModel.users.observe(this, {
+            it?.let {
+                adapter.submitList(it)
             }
         })
     }
 
-    private fun onClick(index: Int) {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.user_list, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.addButton -> {
+                val intent = Intent(this, AddUserActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onClick(userId: Int) {
         val intent = Intent(this, DetailsUserActivity::class.java)
-        intent.putExtra("id", index)
+        intent.putExtra("id", userId)
         startActivity(intent)
     }
+
 }

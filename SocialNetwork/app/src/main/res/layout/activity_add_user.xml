@@ -16,13 +16,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:text="@string/edit_profile"
+            android:text="@string/add_profile"
             android:textSize="25sp"
             android:textStyle="bold" />
 
 
         <EditText
-            android:id="@+id/editName"
+            android:id="@+id/addName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -33,7 +33,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editPhoto"
+            android:id="@+id/addPhoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -43,7 +43,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editHobby"
+            android:id="@+id/addHobby"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -53,7 +53,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editStatus"
+            android:id="@+id/addStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
@@ -61,6 +61,5 @@
             android:hint="@string/details_status"
             android:inputType="text"
             android:textSize="20sp" />
-
     </LinearLayout>
 </ScrollView>

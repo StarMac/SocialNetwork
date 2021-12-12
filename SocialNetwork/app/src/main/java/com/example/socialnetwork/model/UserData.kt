@@ -1,8 +1,9 @@
 package com.example.socialnetwork.model
 
 class UserData {
-    val userList = listOf<User>(
-        User(0, "StarMac" ,"https://image.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg",
+    val userList = listOf(
+        User(
+            0, "StarMac" ,"https://image.freepik.com/free-photo/portrait-white-man-isolated_53876-40306.jpg",
             "1 minute ago","Android-Developer","Just human"),
 
         User(1, "Nasty62" ,"https://i.pinimg.com/1200x/73/94/a9/7394a965a078adc29fce06d03df278c0.jpg",

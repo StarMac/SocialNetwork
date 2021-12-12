@@ -9,11 +9,16 @@
         <entry key="..\:/Users/Maxim/AndroidStudioProjects/SocialNetwork/app/src/main/res/layout/activity_details_user.xml" value="0.3346354166666667" />
         <entry key="..\:/Users/Maxim/AndroidStudioProjects/SocialNetwork/app/src/main/res/layout/activity_userlist.xml" value="0.1" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/drawable-anydpi/ic_edit.xml" value="0.1875" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/layout/activity_add_user.xml" value="0.264" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/layout/activity_details_user.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/layout/activity_edit_user.xml" value="0.259375" />
-        <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/layout/activity_userlist.xml" value="0.17604166666666668" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/layout/activity_userlist.xml" value="0.264" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/layout/item_profile.xml" value="0.2" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/layout/teslayout.xml" value="0.17135416666666667" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/menu/add_user.xml" value="0.259375" />
         <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/menu/details_user.xml" value="0.264" />
-        <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/menu/edit_user.xml" value="0.17135416666666667" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/menu/edit_user.xml" value="0.536" />
+        <entry key="..\:/Users/Maxim/Documents/GitHub/SocialNetwork/SocialNetwork/app/src/main/res/menu/user_list.xml" value="0.17135416666666667" />
       </map>
     </option>
   </component>

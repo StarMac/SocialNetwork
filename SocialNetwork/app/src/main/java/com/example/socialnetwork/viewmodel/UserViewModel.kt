@@ -1,28 +1,38 @@
 package com.example.socialnetwork.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.*
 import com.example.socialnetwork.model.User
 import com.example.socialnetwork.model.UserData
 import com.example.socialnetwork.model.UserDataBase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
-class UserViewModel (application: Application) : AndroidViewModel(application) {
+class UserViewModel(application: Application) : AndroidViewModel(application) {
     private val userData: UserData = UserData()
-    private val _userLiveData = MutableLiveData<List<User>>()
-    val userLiveData : LiveData<List<User>> = _userLiveData
+    private val _usersLiveData = MutableLiveData<List<User>>()
+    val usersLiveData: LiveData<List<User>> = _usersLiveData
+    private val usersDataBase = UserDataBase.getInstance(application).userDao()
+    val users = usersDataBase.getAllUsersLiveData()
 
-    private val userDataBase = UserDataBase.getInstance(application).userDatabaseDao()
-
-    fun loadUserData(){
-        _userLiveData.value = userDataBase.getAllUsers()
-    }
-
-    fun insertUserToDataBase(){
-        if(userDataBase.getUser() == null) {
-            for (user in userData.userList)
-                userDataBase.insert(user)
+    init {
+        viewModelScope.launch {
+            insertUsersToDataBase()
+        }
+        viewModelScope.launch(Dispatchers.Main) {
+            loadUsersData()
         }
     }
+
+    private suspend fun loadUsersData() {
+        _usersLiveData.value = usersDataBase.getAllUsers()
+    }
+
+    private suspend fun insertUsersToDataBase() {
+        if (usersDataBase.count() == 0) {
+            for (user in userData.userList)
+                usersDataBase.insert(user)
+        }
+    }
+
 }

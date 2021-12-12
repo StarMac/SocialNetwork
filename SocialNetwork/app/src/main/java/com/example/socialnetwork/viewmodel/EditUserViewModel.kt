@@ -4,20 +4,34 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.socialnetwork.model.User
 import com.example.socialnetwork.model.UserDataBase
+import kotlinx.coroutines.launch
 
-class EditUserViewModel (application: Application) : AndroidViewModel(application) {
+class EditUserViewModel(application: Application) : AndroidViewModel(application) {
     private val _userEditLiveData = MutableLiveData<User>()
-    val userEditLiveData : LiveData<User> = _userEditLiveData
+    val userEditLiveData: LiveData<User> = _userEditLiveData
 
-    private val userDataBase = UserDataBase.getInstance(application).userDatabaseDao()
+    fun init(userId: Int) {
+        viewModelScope.launch {
+            loadUserDetailsData(userId)
+        }
+    }
 
-    fun loadUserDetailsData(id: Int){
+    private val userDataBase = UserDataBase.getInstance(application).userDao()
+
+    private suspend fun loadUserDetailsData(id: Int) {
         _userEditLiveData.value = userDataBase.get(id)
     }
 
-    fun updateUser(user : User){
+    fun onUpdateUser(user: User) {
+        viewModelScope.launch {
+            updateUser(user)
+        }
+    }
+
+    private suspend fun updateUser(user: User) {
         userDataBase.update(user)
     }
 }

@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SocialNetwork">
         <activity
+            android:name=".view.AddUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.EditUserActivity"
             android:exported="false" />
         <activity

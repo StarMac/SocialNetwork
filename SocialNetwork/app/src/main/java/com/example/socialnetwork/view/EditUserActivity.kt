@@ -3,6 +3,7 @@ package com.example.socialnetwork.view
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +21,8 @@ class EditUserActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_user)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        viewModel = ViewModelProvider(this).get(EditUserViewModel::class.java)
+        viewModel = ViewModelProvider(this)[EditUserViewModel::class.java]
+        viewModel.init(getId())
 
         val editUserName: EditText = findViewById(R.id.editName)
         val editPhoto: EditText = findViewById(R.id.editPhoto)
@@ -33,8 +35,6 @@ class EditUserActivity : AppCompatActivity() {
             editHobby.setText(it.profession)
             editStatus.setText(it.status)
         })
-
-        viewModel.loadUserDetailsData(getId())
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,7 +44,7 @@ class EditUserActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        when (item.itemId){
+        when (item.itemId) {
 
             R.id.confirmButton -> {
 
@@ -52,13 +52,16 @@ class EditUserActivity : AppCompatActivity() {
                     findViewById(R.id.editName), findViewById(R.id.editPhoto),
                     findViewById(R.id.editHobby), findViewById(R.id.editStatus)
                 )
-                    for (userEditText in usersEditTextList){
-                        if (userEditText.text.isEmpty() && userEditText != usersEditTextList[1])
-                        {
-                            Toast.makeText(applicationContext, "All field need to be filled in", Toast.LENGTH_SHORT).show()
-                            return true
-                        }
+                for (userEditText in usersEditTextList) {
+                    if (userEditText.text.isEmpty() && userEditText != usersEditTextList[1]) {
+                        Toast.makeText(
+                            applicationContext,
+                            "All field need to be filled in",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return true
                     }
+                }
                 val user = User(
                     getId(),
                     usersEditTextList[0].text.toString(),
@@ -67,7 +70,7 @@ class EditUserActivity : AppCompatActivity() {
                     usersEditTextList[2].text.toString(),
                     usersEditTextList[3].text.toString()
                 )
-                viewModel.updateUser(user)
+                viewModel.onUpdateUser(user)
                 finish()
             }
             android.R.id.home -> {
@@ -79,9 +82,8 @@ class EditUserActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun getId() : Int {
+    private fun getId(): Int {
         val arguments = intent.extras
-        val id : Int = arguments?.getInt("id")!!.toInt()
-        return id
+        return arguments?.getInt("id")!!.toInt()
     }
 }
