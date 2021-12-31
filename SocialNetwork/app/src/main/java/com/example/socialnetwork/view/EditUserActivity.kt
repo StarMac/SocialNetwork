@@ -3,36 +3,34 @@ package com.example.socialnetwork.view
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.socialnetwork.R
+import com.example.socialnetwork.databinding.ActivityEditUserBinding
 import com.example.socialnetwork.model.User
 import com.example.socialnetwork.viewmodel.EditUserViewModel
 
 class EditUserActivity : AppCompatActivity() {
 
     private lateinit var viewModel: EditUserViewModel
+    private lateinit var binding: ActivityEditUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_user)
+        binding = ActivityEditUserBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel = ViewModelProvider(this)[EditUserViewModel::class.java]
         viewModel.init(getId())
 
-        val editUserName: EditText = findViewById(R.id.editName)
-        val editPhoto: EditText = findViewById(R.id.editPhoto)
-        val editStatus: EditText = findViewById(R.id.editStatus)
-        val editHobby: EditText = findViewById(R.id.editHobby)
-
         viewModel.userEditLiveData.observe(this, {
-            editUserName.setText(it.name)
-            editPhoto.setText(it.photo)
-            editHobby.setText(it.profession)
-            editStatus.setText(it.status)
+            binding.editName.setText(it.name)
+            binding.editPhoto.setText(it.photo)
+            binding.editHobby.setText(it.profession)
+            binding.editStatus.setText(it.status)
         })
     }
 
@@ -47,9 +45,9 @@ class EditUserActivity : AppCompatActivity() {
 
             R.id.confirmButton -> {
 
-                val usersEditTextList = listOf<EditText>(
-                    findViewById(R.id.editName), findViewById(R.id.editPhoto),
-                    findViewById(R.id.editHobby), findViewById(R.id.editStatus)
+                val usersEditTextList = listOf(
+                    binding.editName, binding.editPhoto,
+                    binding.editHobby, binding.editStatus
                 )
                 for (userEditText in usersEditTextList) {
                     if (userEditText.text.isEmpty() && userEditText != usersEditTextList[1]) {

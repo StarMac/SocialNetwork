@@ -21,9 +21,6 @@ class DetailsUserViewModel(application: Application) : AndroidViewModel(applicat
 
     private val userDao = UserDataBase.getInstance(application).userDao()
 
-    //    private suspend fun loadUserDetailsData(id: Int) {
-//        _userDetailsLiveData.value = userDao.get(id)
-//    }
     fun deleteUser(id: Int) {
         viewModelScope.launch {
             deleteUserBase(userDataBase.get(id)!!)

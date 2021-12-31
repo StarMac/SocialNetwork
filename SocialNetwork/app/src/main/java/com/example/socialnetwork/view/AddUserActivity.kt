@@ -3,21 +3,24 @@ package com.example.socialnetwork.view
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.socialnetwork.R
+import com.example.socialnetwork.databinding.ActivityAddUserBinding
 import com.example.socialnetwork.model.User
 import com.example.socialnetwork.viewmodel.AddUserViewModel
 import kotlin.random.Random
 
 class AddUserActivity : AppCompatActivity() {
     private lateinit var viewModel: AddUserViewModel
+    private lateinit var binding: ActivityAddUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_user)
+        binding = ActivityAddUserBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel = ViewModelProvider(this)[AddUserViewModel::class.java]
@@ -36,9 +39,9 @@ class AddUserActivity : AppCompatActivity() {
                 val onlineStatusDays = Random.nextInt(2, 59)
                 val onlineStatus = "$onlineStatusDays minutes ago"
 
-                val userAddList = listOf<EditText>(
-                    findViewById(R.id.addName), findViewById(R.id.addPhoto),
-                    findViewById(R.id.addHobby), findViewById(R.id.addStatus)
+                val userAddList = listOf(
+                    binding.addName, binding.addPhoto,
+                    binding.addHobby, binding.addStatus
                 )
                 for (userAddText in userAddList) {
                     if (userAddText.text.isEmpty() && userAddText != userAddList[1]) {

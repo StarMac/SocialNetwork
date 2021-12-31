@@ -10,14 +10,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.socialnetwork.R
 import com.example.socialnetwork.adapter.OnItemClick
 import com.example.socialnetwork.adapter.UserAdapter
+import com.example.socialnetwork.databinding.ActivityUserlistBinding
 import com.example.socialnetwork.viewmodel.UserViewModel
 
 class UserListActivity : AppCompatActivity(), OnItemClick {
     private lateinit var viewModel: UserViewModel
+    private lateinit var binging : ActivityUserlistBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_userlist)
+        binging = ActivityUserlistBinding.inflate(layoutInflater)
+        val view = binging.root
+        setContentView(view)
 
         val recyclerView: RecyclerView = findViewById(R.id.userList)
         val adapter = UserAdapter(this)

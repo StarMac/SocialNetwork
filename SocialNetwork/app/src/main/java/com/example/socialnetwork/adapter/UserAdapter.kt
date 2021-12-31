@@ -2,7 +2,6 @@ package com.example.socialnetwork.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.socialnetwork.R
+import com.example.socialnetwork.databinding.ItemProfileBinding
 import com.example.socialnetwork.model.User
 
 interface OnItemClick {
@@ -31,19 +31,17 @@ class UserAdapter(private val onItemClick: OnItemClick) :
     }) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.item_profile, parent, false)
-        return ProfileHolder(view)
+        return ProfileHolder(ItemProfileBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: ProfileHolder, position: Int) {
         holder.bind(getItem(position), holder.itemView.context)
     }
 
-    inner class ProfileHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val nameTextView: TextView = itemView.findViewById(R.id.userName)
-        private val onlineStatusTextView: TextView = itemView.findViewById(R.id.onlineStatus)
-        private val profileImageView: ImageView = itemView.findViewById(R.id.profileImage)
+    inner class ProfileHolder(binding: ItemProfileBinding) : RecyclerView.ViewHolder(binding.root) {
+        private val nameTextView: TextView = binding.userName
+        private val onlineStatusTextView: TextView = binding.onlineStatus
+        private val profileImageView: ImageView = binding.profileImage
 
         fun bind(item: User, context: Context) {
             nameTextView.text = item.name
