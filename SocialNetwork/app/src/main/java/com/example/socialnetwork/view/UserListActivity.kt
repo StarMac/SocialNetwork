@@ -15,15 +15,15 @@ import com.example.socialnetwork.viewmodel.UserViewModel
 
 class UserListActivity : AppCompatActivity(), OnItemClick {
     private lateinit var viewModel: UserViewModel
-    private lateinit var binging : ActivityUserlistBinding
+    private lateinit var binding : ActivityUserlistBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binging = ActivityUserlistBinding.inflate(layoutInflater)
-        val view = binging.root
+        binding = ActivityUserlistBinding.inflate(layoutInflater)
+        val view = binding.root
         setContentView(view)
 
-        val recyclerView: RecyclerView = findViewById(R.id.userList)
+        val recyclerView: RecyclerView = binding.userList
         val adapter = UserAdapter(this)
         recyclerView.adapter = adapter
 
