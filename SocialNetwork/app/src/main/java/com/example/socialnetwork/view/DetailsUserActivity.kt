@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.socialnetwork.R
@@ -12,15 +11,12 @@ import com.example.socialnetwork.databinding.ActivityDetailsUserBinding
 import com.example.socialnetwork.viewmodel.DetailsUserViewModel
 import java.io.Serializable
 
-class DetailsUserActivity : AppCompatActivity(), Serializable {
+class DetailsUserActivity :
+    BaseActivity<ActivityDetailsUserBinding>(ActivityDetailsUserBinding::inflate), Serializable {
     private lateinit var viewModel: DetailsUserViewModel
-    private lateinit var binding: ActivityDetailsUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityDetailsUserBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel = ViewModelProvider(this)[DetailsUserViewModel::class.java]
@@ -34,7 +30,8 @@ class DetailsUserActivity : AppCompatActivity(), Serializable {
             binding.detailsUserName.text = it.name
             binding.detailsUserHobby.text = it.profession
             binding.detailsUserStatus.text = it.status
-            Glide.with(this).load(it.photo).error(R.drawable.ic_generic_avatar).into(binding.detailsImage)
+            Glide.with(this).load(it.photo).error(R.drawable.ic_generic_avatar)
+                .into(binding.detailsImage)
         })
     }
 

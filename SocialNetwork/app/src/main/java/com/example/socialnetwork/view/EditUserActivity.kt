@@ -4,23 +4,18 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.socialnetwork.R
 import com.example.socialnetwork.databinding.ActivityEditUserBinding
 import com.example.socialnetwork.model.User
 import com.example.socialnetwork.viewmodel.EditUserViewModel
 
-class EditUserActivity : AppCompatActivity() {
+class EditUserActivity : BaseActivity<ActivityEditUserBinding>(ActivityEditUserBinding::inflate) {
 
     private lateinit var viewModel: EditUserViewModel
-    private lateinit var binding: ActivityEditUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEditUserBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel = ViewModelProvider(this)[EditUserViewModel::class.java]

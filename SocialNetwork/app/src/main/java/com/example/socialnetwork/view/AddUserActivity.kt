@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.socialnetwork.R
 import com.example.socialnetwork.databinding.ActivityAddUserBinding
@@ -12,19 +11,16 @@ import com.example.socialnetwork.model.User
 import com.example.socialnetwork.viewmodel.AddUserViewModel
 import kotlin.random.Random
 
-class AddUserActivity : AppCompatActivity() {
+class AddUserActivity : BaseActivity<ActivityAddUserBinding>(ActivityAddUserBinding::inflate) {
     private lateinit var viewModel: AddUserViewModel
-    private lateinit var binding: ActivityAddUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddUserBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel = ViewModelProvider(this)[AddUserViewModel::class.java]
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.add_user, menu)
         return super.onCreateOptionsMenu(menu)
