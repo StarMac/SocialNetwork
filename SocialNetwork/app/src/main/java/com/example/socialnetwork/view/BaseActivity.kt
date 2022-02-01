@@ -17,9 +17,4 @@ abstract class BaseActivity<B : ViewBinding>(val bindingFactory: (LayoutInflater
         _binding = bindingFactory(layoutInflater)
         setContentView(requireNotNull(_binding).root)
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
 }
