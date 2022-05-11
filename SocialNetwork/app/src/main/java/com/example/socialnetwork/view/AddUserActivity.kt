@@ -35,30 +35,41 @@ class AddUserActivity : BaseActivity<ActivityAddUserBinding>(ActivityAddUserBind
                 val onlineStatusDays = Random.nextInt(2, 59)
                 val onlineStatus = "$onlineStatusDays minutes ago"
 
-                val userAddList = listOf(
-                    binding.addName, binding.addPhoto,
-                    binding.addHobby, binding.addStatus
+                val userAddListText = listOf(
+                    binding.addName.text.toString(), binding.addPhoto.text.toString(),
+                    binding.addHobby.text.toString(), binding.addStatus.text.toString()
                 )
-                for (userAddText in userAddList) {
-                    if (userAddText.text.isEmpty() && userAddText != userAddList[1]) {
+                if (!viewModel.fieldsIsEmpty(userAddListText)) {
+                    if(!viewModel.fieldHasSpecialCharacters(binding.addName.toString())) {
+                        viewModel.insertUser(
+                            User(
+                                viewModel.count,
+                                userAddListText[0],
+                                userAddListText[1],
+                                onlineStatus,
+                                userAddListText[2],
+                                userAddListText[3]
+                            )
+                        )
+                        finish()
+                        return true
+                    }
+                    else{
                         Toast.makeText(
                             applicationContext,
-                            "All field need to be filled in",
+                            "The name must not contain special characters",
                             Toast.LENGTH_SHORT
                         ).show()
                         return true
                     }
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "All field need to be filled in",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return true
                 }
-                val user = User(
-                    viewModel.count,
-                    userAddList[0].text.toString(),
-                    userAddList[1].text.toString(),
-                    onlineStatus,
-                    userAddList[2].text.toString(),
-                    userAddList[3].text.toString()
-                )
-                viewModel.insertUser(user)
-                finish()
             }
             android.R.id.home -> {
                 finish()

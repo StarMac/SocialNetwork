@@ -25,11 +25,11 @@ class UserListActivity : BaseActivity<ActivityUserlistBinding>(ActivityUserlistB
 
         viewModel = ViewModelProvider(this)[UserViewModel::class.java]
 
-        viewModel.users.observe(this, {
+        viewModel.users.observe(this) {
             it?.let {
                 adapter.submitList(it)
             }
-        })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,7 +44,6 @@ class UserListActivity : BaseActivity<ActivityUserlistBinding>(ActivityUserlistB
                 startActivity(intent)
             }
         }
-
 
         return super.onOptionsItemSelected(item)
     }

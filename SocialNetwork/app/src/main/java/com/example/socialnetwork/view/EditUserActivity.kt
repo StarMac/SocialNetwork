@@ -21,12 +21,12 @@ class EditUserActivity : BaseActivity<ActivityEditUserBinding>(ActivityEditUserB
         viewModel = ViewModelProvider(this)[EditUserViewModel::class.java]
         viewModel.init(getId())
 
-        viewModel.userEditLiveData.observe(this, {
+        viewModel.userEditLiveData.observe(this) {
             binding.editName.setText(it.name)
             binding.editPhoto.setText(it.photo)
             binding.editHobby.setText(it.profession)
             binding.editStatus.setText(it.status)
-        })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -40,30 +40,40 @@ class EditUserActivity : BaseActivity<ActivityEditUserBinding>(ActivityEditUserB
 
             R.id.confirmButton -> {
 
-                val usersEditTextList = listOf(
-                    binding.editName, binding.editPhoto,
-                    binding.editHobby, binding.editStatus
+                val userEditTextList = listOf(
+                    binding.editName.text.toString(), binding.editPhoto.text.toString(),
+                    binding.editHobby.text.toString(), binding.editStatus.text.toString()
                 )
-                for (userEditText in usersEditTextList) {
-                    if (userEditText.text.isEmpty() && userEditText != usersEditTextList[1]) {
+                if (!viewModel.fieldsIsEmpty(userEditTextList)) {
+                    if (!viewModel.fieldHasSpecialCharacters(binding.editName.text.toString())) {
+                        viewModel.onUpdateUser(
+                            User(
+                                getId(),
+                                userEditTextList[0],
+                                userEditTextList[1],
+                                viewModel.userEditLiveData.value!!.onlineStatus,
+                                userEditTextList[2],
+                                userEditTextList[3]
+                            )
+                        )
+                        finish()
+                        return true
+                    } else {
                         Toast.makeText(
                             applicationContext,
-                            "All field need to be filled in",
+                            "The name must not contain special characters",
                             Toast.LENGTH_SHORT
                         ).show()
                         return true
                     }
+                } else {
+                    Toast.makeText(
+                        applicationContext,
+                        "All field need to be filled in",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return true
                 }
-                val user = User(
-                    getId(),
-                    usersEditTextList[0].text.toString(),
-                    usersEditTextList[1].text.toString(),
-                    viewModel.userEditLiveData.value!!.onlineStatus,
-                    usersEditTextList[2].text.toString(),
-                    usersEditTextList[3].text.toString()
-                )
-                viewModel.onUpdateUser(user)
-                finish()
             }
             android.R.id.home -> {
                 finish()

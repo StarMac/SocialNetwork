@@ -22,7 +22,7 @@ class DetailsUserActivity :
         viewModel = ViewModelProvider(this)[DetailsUserViewModel::class.java]
         viewModel.init(getId())
 
-        viewModel.userDetailsLiveData.observe(this, {
+        viewModel.userDetailsLiveData.observe(this) {
             if (it == null) {
                 finish()
                 return@observe
@@ -32,7 +32,7 @@ class DetailsUserActivity :
             binding.detailsUserStatus.text = it.status
             Glide.with(this).load(it.photo).error(R.drawable.ic_generic_avatar)
                 .into(binding.detailsImage)
-        })
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
