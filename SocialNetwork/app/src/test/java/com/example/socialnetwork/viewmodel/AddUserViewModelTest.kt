@@ -18,23 +18,23 @@ class AddUserViewModelTest() {
     }
 
     @Test
-    fun fieldsIsEmpty_listIsEmpty_returnsTrue() {
+    fun fieldsAreEmpty_listIsEmpty_returnsTrue() {
         val fields = listOf("")
-        val result = addUserViewModel.fieldsIsEmpty(fields)
+        val result = addUserViewModel.fieldsAreEmpty(fields)
         assertThat(result, `is`(true))
     }
 
     @Test
-    fun fieldsIsEmpty_fieldsContainsEmpty_returnsTrue() {
+    fun fieldsAreEmpty_fieldsContainEmpty_returnsTrue() {
         val fields = listOf("Test", "test", "")
-        val result = addUserViewModel.fieldsIsEmpty(fields)
+        val result = addUserViewModel.fieldsAreEmpty(fields)
         assertThat(result, `is`(true))
     }
 
     @Test
-    fun fieldsIsEmpty_IsNotEmpty_returnsFalse() {
+    fun fieldsAreEmpty_AreNotEmpty_returnsFalse() {
         val fields = listOf("Test", "test", "test2?")
-        val result = addUserViewModel.fieldsIsEmpty(fields)
+        val result = addUserViewModel.fieldsAreEmpty(fields)
         assertThat(result, `is`(false))
     }
 

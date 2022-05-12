@@ -44,7 +44,7 @@ class EditUserActivity : BaseActivity<ActivityEditUserBinding>(ActivityEditUserB
                     binding.editName.text.toString(), binding.editPhoto.text.toString(),
                     binding.editHobby.text.toString(), binding.editStatus.text.toString()
                 )
-                if (!viewModel.fieldsIsEmpty(userEditTextList)) {
+                if (!viewModel.fieldsAreEmpty(userEditTextList)) {
                     if (!viewModel.fieldHasSpecialCharacters(binding.editName.text.toString())) {
                         viewModel.onUpdateUser(
                             User(

@@ -18,23 +18,23 @@ class EditUserViewModelTest {
     }
 
     @Test
-    fun fieldsIsEmpty_listIsEmpty_returnsTrue() {
+    fun fieldsAreEmpty_listIsEmpty_returnsTrue() {
         val fields = listOf("")
-        val result = editUserViewModel.fieldsIsEmpty(fields)
+        val result = editUserViewModel.fieldsAreEmpty(fields)
         MatcherAssert.assertThat(result, Is.`is`(true))
     }
 
     @Test
-    fun fieldsIsEmpty_fieldsContainsEmpty_returnsTrue() {
+    fun fieldsAreEmpty_fieldsContainEmpty_returnsTrue() {
         val fields = listOf("name", "", "test")
-        val result = editUserViewModel.fieldsIsEmpty(fields)
+        val result = editUserViewModel.fieldsAreEmpty(fields)
         MatcherAssert.assertThat(result, Is.`is`(true))
     }
 
     @Test
-    fun fieldsIsEmpty_IsNotEmpty_returnsFalse() {
+    fun fieldsAreEmpty_AreNotEmpty_returnsFalse() {
         val fields = listOf("test1", "test2", "test3")
-        val result = editUserViewModel.fieldsIsEmpty(fields)
+        val result = editUserViewModel.fieldsAreEmpty(fields)
         MatcherAssert.assertThat(result, Is.`is`(false))
     }
 

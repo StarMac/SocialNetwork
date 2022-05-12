@@ -33,7 +33,7 @@ class EditUserViewModel(application: Application) : AndroidViewModel(application
         }
     }
 
-    fun fieldsIsEmpty(userFields: List<String>): Boolean {
+    fun fieldsAreEmpty(userFields: List<String>): Boolean {
         userFields.forEach{
             if (it.isEmpty())
                 return true

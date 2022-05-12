@@ -39,7 +39,7 @@ class AddUserActivity : BaseActivity<ActivityAddUserBinding>(ActivityAddUserBind
                     binding.addName.text.toString(), binding.addPhoto.text.toString(),
                     binding.addHobby.text.toString(), binding.addStatus.text.toString()
                 )
-                if (!viewModel.fieldsIsEmpty(userAddListText)) {
+                if (!viewModel.fieldsAreEmpty(userAddListText)) {
                     if(!viewModel.fieldHasSpecialCharacters(binding.addName.toString())) {
                         viewModel.insertUser(
                             User(
