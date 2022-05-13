@@ -49,7 +49,8 @@ class EditUserViewModelTest {
         userDao.insert(user)
         user = User(1, "Ronald", "test", "1 seconds ago", "tester", "I love tests")
         userDao.update(user)
-        val result = userDao.get(1)
+        userLiveData.value = userDao.get(1)
+        val result = userLiveData.value
         assertThat(result!!.name, `is`("Ronald"))
     }
 
